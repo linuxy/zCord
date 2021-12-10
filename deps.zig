@@ -2,23 +2,23 @@ const std = @import("std");
 pub const pkgs = struct {
     pub const hzzp = std.build.Pkg{
         .name = "hzzp",
-        .path = .{ .path = "lib/hzzp/src/main.zig" },
+        .path = .{ .path = "libs/zCord/lib/hzzp/src/main.zig" },
     };
 
     pub const wz = std.build.Pkg{
         .name = "wz",
-        .path = .{ .path = "lib/wz/src/main.zig" },
+        .path = .{ .path = "libs/zCord/lib/wz/src/main.zig" },
         .dependencies = &[_]std.build.Pkg{
             std.build.Pkg{
                 .name = "hzzp",
-                .path = .{ .path = "lib/hzzp/src/main.zig" },
+                .path = .{ .path = "libs/zCord/lib/hzzp/src/main.zig" },
             },
         },
     };
 
     pub const iguanaTLS = std.build.Pkg{
         .name = "iguanaTLS",
-        .path = .{ .path = "lib/iguanaTLS/src/main.zig" },
+        .path = .{ .path = "libs/zCord/lib/iguanaTLS/src/main.zig" },
     };
 
     pub fn addAllTo(artifact: *std.build.LibExeObjStep) void {
@@ -34,7 +34,7 @@ pub const pkgs = struct {
 pub const exports = struct {
     pub const zCord = std.build.Pkg{
         .name = "zCord",
-        .path = .{ .path = "src/main.zig" },
+        .path = .{ .path = "libs/zCord/src/main.zig" },
         .dependencies = &.{
             pkgs.hzzp,
             pkgs.wz,
@@ -43,7 +43,7 @@ pub const exports = struct {
     };
 };
 pub const base_dirs = struct {
-    pub const hzzp = "lib/hzzp";
-    pub const wz = "lib/wz";
-    pub const iguanaTLS = "lib/iguanaTLS";
+    pub const hzzp = "libs/zCord/lib/hzzp";
+    pub const wz = "libs/zCord/lib/wz";
+    pub const iguanaTLS = "libs/zCord/lib/iguanaTLS";
 };

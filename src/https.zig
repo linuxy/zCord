@@ -3,7 +3,7 @@ const hzzp = @import("hzzp");
 const iguanaTLS = @import("iguanaTLS");
 
 pub const root_ca = struct {
-    const pem = @embedFile("../cacert.pem");
+    const pem = @embedFile("/home/linuxy/Projects/zsaga/cacert.pem");
     var cert_chain: ?iguanaTLS.x509.CertificateChain = null;
 
     /// Initializes the bundled root certificates
